@@ -5,7 +5,6 @@ import { CursorEffects } from './components/CursorEffects';
 import { SoundToggle } from './components/SoundToggle';
 import { ApologyHero } from './components/ApologyHero';
 import { ApologyMessage } from './components/ApologyMessage';
-import { ReasonsSection } from './components/ReasonsSection';
 import { ForgivenessCard } from './components/ForgivenessCard';
 import { Celebration } from './components/Celebration';
 import { Footer } from './components/Footer';
@@ -62,18 +61,13 @@ export const App: React.FC = () => {
 
         {/* Step 2: Sincere Apology Letter */}
         <div ref={letterRef} className="w-full">
-          <ApologyMessage />
-        </div>
-
-        {/* Step 3: Cute Reasons & Connection */}
-        <div className="w-full">
-          <ReasonsSection
+          <ApologyMessage
             onContinueToQuestion={scrollToForgiveness}
             isHappyMode={isHappyMode}
           />
         </div>
 
-        {/* Step 4: The Moment of Truth (Forgiveness Card OR Celebration) */}
+        {/* Step 3: The Moment of Truth (Forgiveness Card OR Celebration) */}
         <div ref={forgivenessRef} className="w-full">
           {isHappyMode ? (
             <Celebration onReset={handleReset} />

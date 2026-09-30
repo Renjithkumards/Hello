@@ -2,17 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { APOLOGY_CONFIG } from '../data/apologyContent';
 import { fadeInUp } from '../animations/pageAnimations';
-import { Mail, Sparkles } from 'lucide-react';
+import { Mail, Sparkles, HeartHandshake } from 'lucide-react';
+import { sounds } from '../utils/soundEffects';
 
 interface ApologyMessageProps {
   id?: string;
+  onContinueToQuestion?: () => void;
+  isHappyMode?: boolean;
 }
 
-export const ApologyMessage: React.FC<ApologyMessageProps> = ({ id = 'apology-message' }) => {
+export const ApologyMessage: React.FC<ApologyMessageProps> = ({
+  id = 'apology-message',
+  onContinueToQuestion,
+  isHappyMode = false,
+}) => {
   const { letter } = APOLOGY_CONFIG;
 
   return (
-    <section id={id} className="py-20 px-4 relative z-10 max-w-4xl mx-auto">
+    <section id={id} className="py-16 px-4 relative z-10 max-w-4xl mx-auto">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -52,7 +59,7 @@ export const ApologyMessage: React.FC<ApologyMessageProps> = ({ id = 'apology-me
           ))}
         </div>
 
-        {/* Signature */}
+        {/* Signature & Bottom button */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -65,10 +72,20 @@ export const ApologyMessage: React.FC<ApologyMessageProps> = ({ id = 'apology-me
             <span>{letter.signature}</span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs text-gray-500 bg-pink-50/80 px-3 py-1.5 rounded-full">
-            <span>Written with 100% sincerity</span>
-            <span>💌</span>
-          </div>
+          {!isHappyMode && onContinueToQuestion && (
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => {
+                sounds.playPop();
+                onContinueToQuestion();
+              }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-pink-500 to-rose-500 shadow-md shadow-pink-500/20 hover:shadow-pink-500/40 transition-all cursor-pointer"
+            >
+              <HeartHandshake className="w-4 h-4" />
+              <span>{letter.continueButton}</span>
+            </motion.button>
+          )}
         </motion.div>
       </motion.div>
     </section>
