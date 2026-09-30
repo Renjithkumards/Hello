@@ -133,7 +133,7 @@ export const Celebration: React.FC<CelebrationProps> = ({ onReset }) => {
         {/* Cute Floating Hearts Banner */}
         <div className="mt-8 flex justify-center items-center gap-2 text-pink-400 text-sm">
           <Heart className="w-4 h-4 fill-pink-400 animate-pulse" />
-          <span>Best Friends Forever</span>
+          <Heart className="w-4 h-4 fill-pink-400 animate-pulse" />
           <Heart className="w-4 h-4 fill-pink-400 animate-pulse" />
         </div>
       </motion.div>
