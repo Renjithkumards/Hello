@@ -45,10 +45,8 @@ export const APOLOGY_CONFIG = {
   },
   celebration: {
     title: "YAYYYYY!!! 🥳🎉💗",
-    heroBadge: "Friendship Restored 100% ✨",
     subtitle: "Rajitha forgave me! 😭❤️",
     thankYou: "Thank you so much, Rajitha! 🥰",
-    body: "You just made my entire year! I promise to be the best friend ever and cherish our friendship forever.",
     treatPromise: "Next Boba / Ice cream / Treat is 100% on me! 🍦🧋✨",
     resetButtonText: "Replay The Cuteness ↺",
   },

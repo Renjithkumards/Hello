@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { APOLOGY_CONFIG } from '../data/apologyContent';
 import { CuteCharacter } from './CuteCharacter';
 import { ConfettiEffect } from './Confetti';
-import { Sparkles, Heart, PartyPopper, RotateCcw, Utensils } from 'lucide-react';
+import { Sparkles, Heart, RotateCcw, Utensils } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
 
 interface CelebrationProps {
@@ -43,17 +43,6 @@ export const Celebration: React.FC<CelebrationProps> = ({ onReset }) => {
           🎉
         </motion.div>
 
-        {/* Badge */}
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-extrabold bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-pink-500/25 mb-6"
-        >
-          <PartyPopper className="w-4 h-4 animate-bounce" />
-          <span>{celebration.heroBadge}</span>
-        </motion.div>
-
         {/* Dancing Character */}
         <div className="flex justify-center mb-6 relative">
           <CuteCharacter mood="happy" size="xl" onClick={triggerExtraConfetti} />
@@ -91,13 +80,10 @@ export const Celebration: React.FC<CelebrationProps> = ({ onReset }) => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="bg-white/80 rounded-2xl p-6 border border-pink-200 max-w-xl mx-auto shadow-sm mb-8 space-y-3"
+          className="bg-white/80 rounded-2xl p-5 border border-pink-200 max-w-md mx-auto shadow-sm mb-8"
         >
-          <p className="text-gray-700 text-base sm:text-lg leading-relaxed font-medium">
-            {celebration.body}
-          </p>
-          <div className="pt-3 border-t border-pink-100 flex items-center justify-center gap-2 text-rose-600 font-bold text-sm sm:text-base">
-            <Utensils className="w-4 h-4 text-pink-500" />
+          <div className="flex items-center justify-center gap-2 text-rose-600 font-bold text-base sm:text-lg">
+            <Utensils className="w-5 h-5 text-pink-500" />
             <span>{celebration.treatPromise}</span>
           </div>
         </motion.div>
