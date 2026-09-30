@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    background: radial-gradient(circle at 50% 0%, #FFF5F7 0%, #FCE1E4 40%, #FFF9F4 100%);
+    min-height: 100vh;
+    color: #4A4E69;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #FB6F92;
+    color: #ffffff;
+  }
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px 0 rgba(251, 111, 146, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 36px 0 rgba(251, 111, 146, 0.16), 0 2px 6px 0 rgba(0, 0, 0, 0.03);
+  border-color: rgba(255, 179, 198, 0.8);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFE5EC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF8FAB;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FB6F92;
+}
+
+/* Soft Glow Text */
+.text-glow {
+  text-shadow: 0 2px 10px rgba(251, 111, 146, 0.25);
+}
+
+.text-glow-gold {
+  text-shadow: 0 2px 10px rgba(255, 209, 102, 0.4);
+}
+
+/* Sparkle Keyframe */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes tearDrop {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  30% { opacity: 0.9; }
+  90% { transform: translateY(22px) scale(0.9); opacity: 0.7; }
+  100% { transform: translateY(26px) scale(0.4); opacity: 0; }
+}
+
+.animate-tear {
+  animation: tearDrop 2.2s infinite ease-in;
+}
+
+@keyframes tearDropDelay {
+  0%, 20% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { opacity: 0.9; }
+  95% { transform: translateY(22px) scale(0.9); opacity: 0.7; }
+  100% { transform: translateY(26px) scale(0.4); opacity: 0; }
+}
+
+.animate-tear-delay {
+  animation: tearDropDelay 2.5s infinite ease-in;
+}
+
+@keyframes bounceDance {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-16px) rotate(-6deg) scale(1.05); }
+  50% { transform: translateY(0) rotate(0deg) scale(1); }
+  75% { transform: translateY(-16px) rotate(6deg) scale(1.05); }
+}
+
+.animate-dance {
+  animation: bounceDance 1.2s ease-in-out infinite;
+}
+
+/* Reduced Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
