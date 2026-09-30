@@ -12,8 +12,7 @@ export const APOLOGY_CONFIG = {
     paragraphs: [
       "I know I messed up, and I'm genuinely, wholeheartedly sorry.",
       "I never ever wanted to hurt your feelings or make you upset with me. Sometimes my words or actions stumble, but that doesn't mean you don't matter to me.",
-      "You are genuinely one of the sweetest, most special people in my life, and the thought of causing you any sadness hurts me deeply.",
-      "Our friendship is priceless to me, and I sincerely hope you can find it in your kind heart to forgive me."
+      "You are genuinely one of the sweetest, most special people in my life, and the thought of causing you any sadness hurts me deeply."
     ],
     signature: "From your regretful bestie 🥺👉👈",
     continueButton: "One Last Question For You... 🥺👉👈",
